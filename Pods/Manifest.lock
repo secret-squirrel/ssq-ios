@@ -1,0 +1,16 @@
+PODS:
+  - Expecta (0.3.0)
+  - FBSnapshotTestCase (1.1)
+  - OCMock (2.2.3)
+
+DEPENDENCIES:
+  - Expecta (~> 0.3.0)
+  - FBSnapshotTestCase (~> 1.1)
+  - OCMock (~> 2.2.3)
+
+SPEC CHECKSUMS:
+  Expecta: 322f1dc42610106a5ba9871b4924cf1635d80833
+  FBSnapshotTestCase: 188c80bfcb72e744eb0b99d45989d12687c40cf8
+  OCMock: 74e4ddbcef134170dcc844f91c691f13868075d7
+
+COCOAPODS: 0.29.0
