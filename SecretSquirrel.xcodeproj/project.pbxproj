@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
+		17AE620518EA68C100D041BD /* SSQKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeychainManager.m */; };
 		17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
 		17B7E94618E9EBEF0029F75E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */; };
 		17B7E94818E9EBEF0029F75E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94718E9EBEF0029F75E /* UIKit.framework */; };
@@ -36,6 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17AE61FF18EA688E00D041BD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		17AE620318EA68C100D041BD /* SSQKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeychainManager.h; sourceTree = "<group>"; };
+		17AE620418EA68C100D041BD /* SSQKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeychainManager.m; sourceTree = "<group>"; };
 		17B7E94018E9EBEF0029F75E /* SecretSquirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretSquirrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B7E94318E9EBEF0029F75E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,7 +57,7 @@
 		17B7E96418E9EBEF0029F75E /* SecretSquirrelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecretSquirrelTests-Info.plist"; sourceTree = "<group>"; };
 		17B7E96618E9EBEF0029F75E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17B7E96818E9EBEF0029F75E /* SecretSquirrelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecretSquirrelTests.m; sourceTree = "<group>"; };
-		17B7E97218E9EC300029F75E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		17B7E97218E9EC300029F75E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		17B7E97418E9EC5C0029F75E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		17E8223E18E9F32F00320433 /* SSQStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSQStoryboard.storyboard; sourceTree = "<group>"; };
 		5E52C736DC5442A8B564E25E /* Pods-SecretSquirrelTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SecretSquirrelTests.xcconfig"; path = "Pods/Pods-SecretSquirrelTests.xcconfig"; sourceTree = "<group>"; };
@@ -64,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17AE620118EA689C00D041BD /* Security.framework in Frameworks */,
 				17B7E94618E9EBEF0029F75E /* CoreGraphics.framework in Frameworks */,
 				17B7E94818E9EBEF0029F75E /* UIKit.framework in Frameworks */,
 				17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */,
@@ -84,6 +90,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17AE620218EA68A200D041BD /* Keychain Manager */ = {
+			isa = PBXGroup;
+			children = (
+				17AE620318EA68C100D041BD /* SSQKeychainManager.h */,
+				17AE620418EA68C100D041BD /* SSQKeychainManager.m */,
+			);
+			name = "Keychain Manager";
+			sourceTree = "<group>";
+		};
 		17B7E93718E9EBEF0029F75E = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +124,7 @@
 		17B7E94218E9EBEF0029F75E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17AE61FF18EA688E00D041BD /* Security.framework */,
 				17B7E94318E9EBEF0029F75E /* Foundation.framework */,
 				17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */,
 				17B7E94718E9EBEF0029F75E /* UIKit.framework */,
@@ -161,6 +177,7 @@
 				17B7E95218E9EBEF0029F75E /* SSQAppDelegate.h */,
 				17B7E95318E9EBEF0029F75E /* SSQAppDelegate.m */,
 				17B7E95518E9EBEF0029F75E /* Images.xcassets */,
+				17AE620218EA68A200D041BD /* Keychain Manager */,
 				17B7E94A18E9EBEF0029F75E /* Supporting Files */,
 				17E8223E18E9F32F00320433 /* SSQStoryboard.storyboard */,
 			);
@@ -301,6 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17AE620518EA68C100D041BD /* SSQKeychainManager.m in Sources */,
 				17B7E95418E9EBEF0029F75E /* SSQAppDelegate.m in Sources */,
 				17B7E95018E9EBEF0029F75E /* main.m in Sources */,
 			);
