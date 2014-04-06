@@ -8,11 +8,18 @@
 
 #import "SSQAppDelegate.h"
 
+#import "SSQKeyManager.h"
+
 @implementation SSQAppDelegate
 
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:^(NSData *publicKeyData, NSError *error) {
+        NSLog(@"PUBLIC KEY DATA: %@", publicKeyData);
+        NSLog(@"ERROR: %@", error);
+    }];
+    
     return YES;
 }
 
