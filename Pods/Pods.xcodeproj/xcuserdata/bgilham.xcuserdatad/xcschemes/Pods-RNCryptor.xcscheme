@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "1798D39BC1EA4A9BBCA5CC7B"
-               BuildableName = "libPods-SecretSquirrelTests-Expecta.a"
-               BlueprintName = "Pods-SecretSquirrelTests-Expecta"
+               BlueprintIdentifier = "CD59593540F54C24A7B3800F"
+               BuildableName = "libPods-RNCryptor.a"
+               BlueprintName = "Pods-RNCryptor"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>

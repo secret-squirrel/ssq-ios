@@ -21,6 +21,7 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
 /**
  *  Generates a new public/private key pair and returns
  *  key pair as NSData objects in the completion block.
+ *  If an error exists, that is passed as well.
  *
  *  @param completion Block to execute when generation is complete.
  */

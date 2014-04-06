@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-RNCryptor.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SecretSquirrelTests-Expecta.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -24,25 +29,40 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>17615FEFBE824D8BA9EEC68F</key>
+		<key>17370C1139EB4D98A5C9BEBA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>51D910A2530442B7A76E9C8D</key>
+		<key>1798D39BC1EA4A9BBCA5CC7B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A5679351D8C843EC823A3D56</key>
+		<key>1B921382EE2B4506978FA102</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F52A5EBB33774E2D8ABDBDBD</key>
+		<key>22F3853B078E4A30A89CCB68</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3B9517A85E534420941097F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CD59593540F54C24A7B3800F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
