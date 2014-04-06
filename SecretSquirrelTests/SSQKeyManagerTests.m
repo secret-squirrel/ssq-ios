@@ -12,16 +12,41 @@
 
 @interface SSQKeyManagerTests : XCTestCase
 
+@property (strong) dispatch_semaphore_t semaphore;
+
 @end
 
 @implementation SSQKeyManagerTests
+
+- (void)setUp
+{
+    [super setUp];
+    
+    self.semaphore = dispatch_semaphore_create(0);
+}
+
+- (void)tearDown
+{
+    self.semaphore = nil;
+    
+    [super tearDown];
+}
 
 - (void)testGeneratingKeyPair
 {
     [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:
      ^(NSData *publicKeyData, NSData *privateKeyData, NSError *error) {
+         expect(publicKeyData).to.beKindOf([NSData class]);
+         expect(privateKeyData).to.beKindOf([NSData class]);
+         expect(error).to.beNil();
          
+         dispatch_semaphore_signal(self.semaphore);
     }];
+    
+    while(dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_NOW)){
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
 }
 
 @end

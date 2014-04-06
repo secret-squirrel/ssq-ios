@@ -8,10 +8,9 @@
 
 #import <XCTest/XCTest.h>
 
-#import <Expecta.h>
-#import <OCMock.h>
-
 #define EXP_SHORTHAND
+#import "Expecta.h"
+#import "OCMock.h"
 
 @interface SSQTestHelper : NSObject
 
