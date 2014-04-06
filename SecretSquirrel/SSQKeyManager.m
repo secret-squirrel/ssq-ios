@@ -78,7 +78,7 @@
     // Result
     if(completion) {
         if(status == errSecSuccess) {
-            completion([self dataForPublicKey:publicKey], [self dataForPrivateKey:privateKey], nil);
+            completion([self dataForKey:publicKey withTag:[self tagForPublicKey]], [self dataForKey:privateKey withTag:[self tagForPrivateKey]], nil);
         } else {
             completion(nil, nil, [NSError errorWithDomain:SSQErrorDomain code:(int)status userInfo:nil]);
         }
@@ -89,27 +89,36 @@
     if(privateKey) CFRelease(privateKey);
 }
 
-- (NSData *)dataForPublicKey:(SecKeyRef)publicKeyRef
+- (NSData *)tagForPublicKey
 {
-    // Public Tag
-    NSData *publicTag = [[NSData alloc] initWithBytes:SSQPublicKeyIdentifier
-                                               length:sizeof(SSQPublicKeyIdentifier)];
+    return [[NSData alloc] initWithBytes:SSQPublicKeyIdentifier
+                                  length:sizeof(SSQPublicKeyIdentifier)];
+}
+
+- (NSData *)tagForPrivateKey
+{
+    return [[NSData alloc] initWithBytes:SSQPrivateKeyIdentifier
+                                  length:sizeof(SSQPrivateKeyIdentifier)];
+}
+
+- (NSData *)dataForKey:(SecKeyRef)keyRef withTag:(NSData *)keyTag
+{
     // Setup
     OSStatus sanityCheck = noErr;
-    NSData *publicKeyBits = nil;
+    NSData *keyBits = nil;
     
-    NSMutableDictionary *queryPublicKey = [[NSMutableDictionary alloc] init];
-    [queryPublicKey setObject:(__bridge id)kSecClassKey
-                       forKey:(__bridge id)kSecClass];
-    [queryPublicKey setObject:publicTag
-                       forKey:(__bridge id)kSecAttrApplicationTag];
-    [queryPublicKey setObject:(__bridge id)kSecAttrKeyTypeRSA
-                       forKey:(__bridge id)kSecAttrKeyType];
+    NSMutableDictionary *queryKey = [[NSMutableDictionary alloc] init];
+    [queryKey setObject:(__bridge id)kSecClassKey
+                 forKey:(__bridge id)kSecClass];
+    [queryKey setObject:keyTag
+                 forKey:(__bridge id)kSecAttrApplicationTag];
+    [queryKey setObject:(__bridge id)kSecAttrKeyTypeRSA
+                 forKey:(__bridge id)kSecAttrKeyType];
     
     // Temporarily add public key to the Keychain
     // This is the only way to get NSData, apparently
-    NSMutableDictionary *attributes = [queryPublicKey mutableCopy];
-    [attributes setObject:(__bridge id)publicKeyRef
+    NSMutableDictionary *attributes = [queryKey mutableCopy];
+    [attributes setObject:(__bridge id)keyRef
                    forKey:(__bridge id)kSecValueRef];
     [attributes setObject:@YES
                    forKey:(__bridge id)kSecReturnData];
@@ -117,50 +126,13 @@
     CFTypeRef result;
     sanityCheck = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
     if(sanityCheck == errSecSuccess) {
-        publicKeyBits = CFBridgingRelease(result);
+        keyBits = CFBridgingRelease(result);
         
         // Remove from the Keychain
-        (void)SecItemDelete((__bridge CFDictionaryRef)queryPublicKey);
+        (void)SecItemDelete((__bridge CFDictionaryRef)queryKey);
     }
     
-    return publicKeyBits;
-}
-
-- (NSData *)dataForPrivateKey:(SecKeyRef)privateKeyRef
-{
-    // Private Tag
-    NSData *privateTag = [[NSData alloc] initWithBytes:SSQPrivateKeyIdentifier
-                                               length:sizeof(SSQPrivateKeyIdentifier)];
-    // Setup
-    OSStatus sanityCheck = noErr;
-    NSData *privateKeyBits = nil;
-    
-    NSMutableDictionary *queryPrivateKey = [[NSMutableDictionary alloc] init];
-    [queryPrivateKey setObject:(__bridge id)kSecClassKey
-                       forKey:(__bridge id)kSecClass];
-    [queryPrivateKey setObject:privateTag
-                       forKey:(__bridge id)kSecAttrApplicationTag];
-    [queryPrivateKey setObject:(__bridge id)kSecAttrKeyTypeRSA
-                       forKey:(__bridge id)kSecAttrKeyType];
-    
-    // Temporarily add private key to the Keychain
-    // This is the only way to get NSData, apparently
-    NSMutableDictionary *attributes = [queryPrivateKey mutableCopy];
-    [attributes setObject:(__bridge id)privateKeyRef
-                   forKey:(__bridge id)kSecValueRef];
-    [attributes setObject:@YES
-                   forKey:(__bridge id)kSecReturnData];
-    
-    CFTypeRef result;
-    sanityCheck = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
-    if(sanityCheck == errSecSuccess) {
-        privateKeyBits = CFBridgingRelease(result);
-        
-        // Remove from the Keychain
-        (void)SecItemDelete((__bridge CFDictionaryRef)queryPrivateKey);
-    }
-    
-    return privateKeyBits;
+    return keyBits;
 }
 
 @end
