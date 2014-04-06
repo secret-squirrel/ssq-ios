@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
-		17AE620518EA68C100D041BD /* SSQKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeychainManager.m */; };
+		17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeyManager.m */; };
 		17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
 		17B7E94618E9EBEF0029F75E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */; };
 		17B7E94818E9EBEF0029F75E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94718E9EBEF0029F75E /* UIKit.framework */; };
@@ -39,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		17AE61FF18EA688E00D041BD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		17AE620318EA68C100D041BD /* SSQKeychainManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeychainManager.h; sourceTree = "<group>"; };
-		17AE620418EA68C100D041BD /* SSQKeychainManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeychainManager.m; sourceTree = "<group>"; };
+		17AE620318EA68C100D041BD /* SSQKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeyManager.h; sourceTree = "<group>"; };
+		17AE620418EA68C100D041BD /* SSQKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManager.m; sourceTree = "<group>"; };
 		17B7E94018E9EBEF0029F75E /* SecretSquirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretSquirrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B7E94318E9EBEF0029F75E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,8 +93,8 @@
 		17AE620218EA68A200D041BD /* Keychain Manager */ = {
 			isa = PBXGroup;
 			children = (
-				17AE620318EA68C100D041BD /* SSQKeychainManager.h */,
-				17AE620418EA68C100D041BD /* SSQKeychainManager.m */,
+				17AE620318EA68C100D041BD /* SSQKeyManager.h */,
+				17AE620418EA68C100D041BD /* SSQKeyManager.m */,
 			);
 			name = "Keychain Manager";
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17AE620518EA68C100D041BD /* SSQKeychainManager.m in Sources */,
+				17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */,
 				17B7E95418E9EBEF0029F75E /* SSQAppDelegate.m in Sources */,
 				17B7E95018E9EBEF0029F75E /* main.m in Sources */,
 			);
