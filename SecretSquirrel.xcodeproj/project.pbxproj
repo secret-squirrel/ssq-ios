@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17ADEE4B18F1054F00C75198 /* SSQTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4A18F1054F00C75198 /* SSQTestHelper.m */; };
+		17ADEE4D18F1064200C75198 /* SSQKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */; };
 		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
 		17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeyManager.m */; };
 		17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
@@ -20,7 +22,6 @@
 		17B7E95E18E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
 		17B7E95F18E9EBEF0029F75E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94718E9EBEF0029F75E /* UIKit.framework */; };
 		17B7E96718E9EBEF0029F75E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17B7E96518E9EBEF0029F75E /* InfoPlist.strings */; };
-		17B7E96918E9EBEF0029F75E /* SecretSquirrelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B7E96818E9EBEF0029F75E /* SecretSquirrelTests.m */; };
 		17B7E97318E9EC300029F75E /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 17B7E97218E9EC300029F75E /* Podfile */; };
 		17B7E97518E9EC5C0029F75E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 17B7E97418E9EC5C0029F75E /* README.md */; };
 		17E8223F18E9F32F00320433 /* SSQStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17E8223E18E9F32F00320433 /* SSQStoryboard.storyboard */; };
@@ -39,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17ADEE4918F1054F00C75198 /* SSQTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQTestHelper.h; sourceTree = "<group>"; };
+		17ADEE4A18F1054F00C75198 /* SSQTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQTestHelper.m; sourceTree = "<group>"; };
+		17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManagerTests.m; sourceTree = "<group>"; };
 		17AE61FF18EA688E00D041BD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		17AE620318EA68C100D041BD /* SSQKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeyManager.h; sourceTree = "<group>"; };
 		17AE620418EA68C100D041BD /* SSQKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManager.m; sourceTree = "<group>"; };
@@ -57,7 +61,6 @@
 		17B7E95C18E9EBEF0029F75E /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		17B7E96418E9EBEF0029F75E /* SecretSquirrelTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SecretSquirrelTests-Info.plist"; sourceTree = "<group>"; };
 		17B7E96618E9EBEF0029F75E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		17B7E96818E9EBEF0029F75E /* SecretSquirrelTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecretSquirrelTests.m; sourceTree = "<group>"; };
 		17B7E97218E9EC300029F75E /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		17B7E97418E9EC5C0029F75E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		17E8223E18E9F32F00320433 /* SSQStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SSQStoryboard.storyboard; sourceTree = "<group>"; };
@@ -94,6 +97,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17ADEE4818F1051400C75198 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				17ADEE4918F1054F00C75198 /* SSQTestHelper.h */,
+				17ADEE4A18F1054F00C75198 /* SSQTestHelper.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		17AE620218EA68A200D041BD /* Key Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,7 +174,8 @@
 		17B7E96218E9EBEF0029F75E /* SecretSquirrelTests */ = {
 			isa = PBXGroup;
 			children = (
-				17B7E96818E9EBEF0029F75E /* SecretSquirrelTests.m */,
+				17ADEE4818F1051400C75198 /* Helper */,
+				17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */,
 				17B7E96318E9EBEF0029F75E /* Supporting Files */,
 			);
 			path = SecretSquirrelTests;
@@ -366,7 +379,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				17B7E96918E9EBEF0029F75E /* SecretSquirrelTests.m in Sources */,
+				17ADEE4B18F1054F00C75198 /* SSQTestHelper.m in Sources */,
+				17ADEE4D18F1064200C75198 /* SSQKeyManagerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
