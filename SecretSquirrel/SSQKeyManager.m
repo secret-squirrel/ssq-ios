@@ -32,7 +32,7 @@
 }
 
 #pragma mark - Keys
-- (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSError *))completion
+- (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSData *, NSError *))completion
 {
     // Setup
     OSStatus status = noErr;
@@ -51,7 +51,7 @@
     // Key Pair Attributes
     [keyPairAttr setObject:(__bridge id)kSecAttrKeyTypeRSA
                     forKey:(__bridge id)kSecAttrKeyType];
-    [keyPairAttr setObject:[NSNumber numberWithInt:1024]
+    [keyPairAttr setObject:[NSNumber numberWithInt:2048]
                     forKey:(__bridge id)kSecAttrKeySizeInBits];
     
     // Private Key Attributes
@@ -78,9 +78,9 @@
     // Result
     if(completion) {
         if(status == errSecSuccess) {
-            completion([self dataForPublicKey:publicKey], nil);
+            completion([self dataForPublicKey:publicKey], [self dataForPrivateKey:privateKey], nil);
         } else {
-            completion(nil, [NSError errorWithDomain:SSQErrorDomain code:(int)status userInfo:nil]);
+            completion(nil, nil, [NSError errorWithDomain:SSQErrorDomain code:(int)status userInfo:nil]);
         }
     }
     
@@ -124,6 +124,43 @@
     }
     
     return publicKeyBits;
+}
+
+- (NSData *)dataForPrivateKey:(SecKeyRef)privateKeyRef
+{
+    // Private Tag
+    NSData *privateTag = [[NSData alloc] initWithBytes:SSQPrivateKeyIdentifier
+                                               length:sizeof(SSQPrivateKeyIdentifier)];
+    // Setup
+    OSStatus sanityCheck = noErr;
+    NSData *privateKeyBits = nil;
+    
+    NSMutableDictionary *queryPrivateKey = [[NSMutableDictionary alloc] init];
+    [queryPrivateKey setObject:(__bridge id)kSecClassKey
+                       forKey:(__bridge id)kSecClass];
+    [queryPrivateKey setObject:privateTag
+                       forKey:(__bridge id)kSecAttrApplicationTag];
+    [queryPrivateKey setObject:(__bridge id)kSecAttrKeyTypeRSA
+                       forKey:(__bridge id)kSecAttrKeyType];
+    
+    // Temporarily add private key to the Keychain
+    // This is the only way to get NSData, apparently
+    NSMutableDictionary *attributes = [queryPrivateKey mutableCopy];
+    [attributes setObject:(__bridge id)privateKeyRef
+                   forKey:(__bridge id)kSecValueRef];
+    [attributes setObject:@YES
+                   forKey:(__bridge id)kSecReturnData];
+    
+    CFTypeRef result;
+    sanityCheck = SecItemAdd((__bridge CFDictionaryRef)attributes, &result);
+    if(sanityCheck == errSecSuccess) {
+        privateKeyBits = CFBridgingRelease(result);
+        
+        // Remove from the Keychain
+        (void)SecItemDelete((__bridge CFDictionaryRef)queryPrivateKey);
+    }
+    
+    return privateKeyBits;
 }
 
 @end

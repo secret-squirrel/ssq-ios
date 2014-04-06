@@ -20,10 +20,10 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
 #pragma mark - Keys
 /**
  *  Generates a new public/private key pair and returns
- *  public key as an NSData object in the completion block.
+ *  key pair as NSData objects in the completion block.
  *
  *  @param completion Block to execute when generation is complete.
  */
-- (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSError *))completion;
+- (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSData *, NSError *))completion;
 
 @end
