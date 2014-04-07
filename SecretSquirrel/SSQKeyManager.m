@@ -98,7 +98,12 @@
                                         withSettings:kRNCryptorAES256Settings
                                             password:password
                                                error:&error];
-    return !error ? encryptedData : nil;
+    if(!error) {
+        return encryptedData;
+    } else {
+        NSLog(@"ERROR: Failed to encrypt key data. %@", [error localizedDescription]);
+        return nil;
+    }
 }
 
 - (NSData *)decryptKeyData:(NSData *)keyData withPassword:(NSString *)password
@@ -107,7 +112,12 @@
     NSData *decryptedData = [RNDecryptor decryptData:keyData
                                         withPassword:password
                                                error:&error];
-    return !error ? decryptedData : nil;
+    if(!error) {
+        return decryptedData;
+    } else {
+        NSLog(@"ERROR: Failed to encrypt key data. %@", [error localizedDescription]);
+        return nil;
+    }
 }
 
 #pragma mark - Keys Internal

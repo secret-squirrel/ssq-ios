@@ -29,12 +29,12 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
 
 /**
  *  Encrypts the NSData representation of a key using the
- *  provided password.
+ *  provided password. Encrypted using AES-256.
  *
  *  @param keyData  NSData representation of a key.
  *  @param password The password to use for encryption.
  *
- *  @return Encrypted NSData representation of the provided key.
+ *  @return Encrypted NSData representation of the provided key. Nil if error.
  */
 - (NSData *)encryptKeyData:(NSData *)keyData withPassword:(NSString *)password;
 
@@ -45,7 +45,7 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
  *  @param keyData  Encrypted NSData representation of a key.
  *  @param password The password to use for decryption.
  *
- *  @return NSData representation of the decrypted key.
+ *  @return NSData representation of the decrypted key. Nil if error.
  */
 - (NSData *)decryptKeyData:(NSData *)keyData withPassword:(NSString *)password;
 
