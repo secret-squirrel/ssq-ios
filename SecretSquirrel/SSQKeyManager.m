@@ -9,6 +9,8 @@
 #import "SSQKeyManager.h"
 
 #import <Security/Security.h>
+#import <RNEncryptor.h>
+#import <RNDecryptor.h>
 
 @implementation SSQKeyManager
 
@@ -89,6 +91,26 @@
     if(privateKey) CFRelease(privateKey);
 }
 
+- (NSData *)encryptKeyData:(NSData *)keyData withPassword:(NSString *)password
+{
+    NSError *error;
+    NSData *encryptedData = [RNEncryptor encryptData:keyData
+                                        withSettings:kRNCryptorAES256Settings
+                                            password:password
+                                               error:&error];
+    return !error ? encryptedData : nil;
+}
+
+- (NSData *)decryptKeyData:(NSData *)keyData withPassword:(NSString *)password
+{
+    NSError *error;
+    NSData *decryptedData = [RNDecryptor decryptData:keyData
+                                        withPassword:password
+                                               error:&error];
+    return !error ? decryptedData : nil;
+}
+
+#pragma mark - Keys Internal
 - (NSData *)tagForPublicKey
 {
     return [[NSData alloc] initWithBytes:SSQPublicKeyIdentifier

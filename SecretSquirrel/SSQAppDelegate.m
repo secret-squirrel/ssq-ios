@@ -15,12 +15,6 @@
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:^(NSData *publicKeyData, NSData *privateKeyData, NSError *error) {
-        NSLog(@"PUBLIC KEY DATA: %@", publicKeyData);
-        NSLog(@"PRIVATE KEY DATA: %@", privateKeyData);
-        NSLog(@"ERROR: %@", error);
-    }];
-    
     return YES;
 }
 
