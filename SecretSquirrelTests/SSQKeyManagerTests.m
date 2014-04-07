@@ -49,4 +49,44 @@
     }
 }
 
+- (void)testEncryptingAKey
+{
+    [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:
+     ^(NSData *publicKeyData, NSData *privateKeyData, NSError *error) {
+         NSData *encryptedPublicKeyData = [[SSQKeyManager sharedManager] encryptKeyData:publicKeyData
+                                                                           withPassword:@"testPassword"];
+         
+         expect(encryptedPublicKeyData).to.beKindOf([NSData class]);
+         expect(encryptedPublicKeyData.length).to.beGreaterThan(0);
+         
+         dispatch_semaphore_signal(self.semaphore);
+    }];
+    
+    while(dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_NOW)){
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
+}
+
+- (void)testDecryptingAKey
+{
+    [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:
+     ^(NSData *publicKeyData, NSData *privateKeyData, NSError *error) {
+         NSData *encryptedPublicKeyData = [[SSQKeyManager sharedManager] encryptKeyData:publicKeyData
+                                                                           withPassword:@"testPassword"];
+         
+         NSData *decryptedPublicKeyData = [[SSQKeyManager sharedManager] decryptKeyData:encryptedPublicKeyData
+                                                                           withPassword:@"testPassword"];
+         
+         expect(decryptedPublicKeyData).to.equal(publicKeyData);
+         
+         dispatch_semaphore_signal(self.semaphore);
+     }];
+    
+    while(dispatch_semaphore_wait(self.semaphore, DISPATCH_TIME_NOW)){
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode
+                                 beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
+}
+
 @end
