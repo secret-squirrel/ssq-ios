@@ -15,6 +15,29 @@
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[SSQKeyManager sharedManager] generateKeyPairWithCompletion:^(NSData *publicKeyData, NSData *privateKeyData, NSError *error) {
+        if(!error) {
+            NSData *encryptedPublicKey = [[SSQKeyManager sharedManager] encryptKeyData:publicKeyData withPassword:@"testPassword"];
+            
+            NSData *encryptedPrivateKey = [[SSQKeyManager sharedManager] encryptKeyData:privateKeyData withPassword:@"testPassword"];
+            
+            BOOL publicKeyStatus = [[SSQKeyManager sharedManager] savePublicKeyDataToDisk:encryptedPublicKey];
+            BOOL privateKeyStatus = [[SSQKeyManager sharedManager] savePrivateKeyDataToDisk:encryptedPrivateKey];
+            
+            if(!publicKeyStatus) {
+                NSLog(@"PUBLIC SAVE FAILED");
+            }
+            
+            if(!privateKeyStatus) {
+                NSLog(@"PRIVATE SAVE FAILED");
+            }
+            
+            
+        } else {
+            NSLog(@"ERROR: Failed to generate key pair. %@", [error localizedDescription]);
+        }
+    }];
+    
     return YES;
 }
 

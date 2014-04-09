@@ -12,6 +12,9 @@
 #import <RNEncryptor.h>
 #import <RNDecryptor.h>
 
+static NSString *const SSQPublicKeyFileName = @"SSQPublicKey.ssqkey";
+static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
+
 @implementation SSQKeyManager
 
 #pragma mark - Shared Manager
@@ -120,6 +123,16 @@
     }
 }
 
+- (BOOL)savePublicKeyDataToDisk:(NSData *)publicKeyData
+{
+    return [self saveKeyDataToDisk:publicKeyData withFileName:SSQPublicKeyFileName];
+}
+
+- (BOOL)savePrivateKeyDataToDisk:(NSData *)privateKeyData
+{
+    return [self saveKeyDataToDisk:privateKeyData withFileName:SSQPrivateKeyFileName];
+}
+
 #pragma mark - Keys Internal
 - (NSData *)tagForPublicKey
 {
@@ -165,6 +178,26 @@
     }
     
     return keyBits;
+}
+
+- (NSString *)keyStoragePath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    return paths[0];
+}
+
+- (BOOL)saveKeyDataToDisk:(NSData *)keyData withFileName:(NSString *)filename
+{
+    NSError *error;
+    
+    [keyData writeToFile:[NSString stringWithFormat:@"%@/%@", [self keyStoragePath], filename] options:NSAtomicWrite|NSDataWritingFileProtectionComplete error:&error];
+    
+    if(error) {
+        NSLog(@"ERROR: Failed to save key data to disk. %@", [error localizedDescription]);
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 @end
