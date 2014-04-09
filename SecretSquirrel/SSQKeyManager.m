@@ -28,15 +28,7 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     return sharedManager;
 }
 
-- (id)init
-{
-    if((self = [super init])) {
-        
-    }
-    return self;
-}
-
-#pragma mark - Keys
+#pragma mark - Generation
 - (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSData *, NSError *))completion
 {
     // Setup
@@ -94,6 +86,7 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     if(privateKey) CFRelease(privateKey);
 }
 
+#pragma mark - Encryption/Decryption
 - (NSData *)encryptKeyData:(NSData *)keyData withPassword:(NSString *)password
 {
     NSError *error;
@@ -123,6 +116,7 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     }
 }
 
+#pragma mark - Save/Retrieve/Delete
 - (BOOL)savePublicKeyDataToDisk:(NSData *)publicKeyData
 {
     return [self saveKeyDataToDisk:publicKeyData withFileName:SSQPublicKeyFileName];
@@ -153,7 +147,7 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     return [self deleteKeyDataWithFileName:SSQPrivateKeyFileName];
 }
 
-#pragma mark - Keys Internal
+#pragma mark - Private
 - (NSData *)tagForPublicKey
 {
     return [[NSData alloc] initWithBytes:SSQPublicKeyIdentifier

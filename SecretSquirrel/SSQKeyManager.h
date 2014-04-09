@@ -17,7 +17,7 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
 #pragma mark - Shared Manager
 + (id)sharedManager;
 
-#pragma mark - Keys
+#pragma mark - Generation
 /**
  *  Generates a new public/private key pair and returns
  *  public/private keys as NSData objects in the completion block.
@@ -27,6 +27,7 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
  */
 - (void)generateKeyPairWithCompletion:(void (^)(NSData *, NSData *, NSError *))completion;
 
+#pragma mark - Encryption/Decryption
 /**
  *  Encrypts the NSData representation of a key using the
  *  provided password. Encrypted using AES-256.
@@ -49,6 +50,7 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
  */
 - (NSData *)decryptKeyData:(NSData *)keyData withPassword:(NSString *)password;
 
+#pragma mark - Save/Retrieve/Delete
 /**
  *  Save NSData representation of a public key to disk.
  *
