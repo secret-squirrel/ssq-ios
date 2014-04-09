@@ -147,6 +147,12 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     return [self deleteKeyDataWithFileName:SSQPrivateKeyFileName];
 }
 
+#pragma mark - Status
+- (BOOL)deviceHasExistingKeys
+{
+    return ([self savedPublicKey] != nil && [self savedPrivateKey] != nil);
+}
+
 #pragma mark - Private
 - (NSData *)tagForPublicKey
 {

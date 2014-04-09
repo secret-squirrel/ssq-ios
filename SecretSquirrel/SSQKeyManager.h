@@ -97,4 +97,12 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
  */
 - (BOOL)deleteSavedPrivateKey;
 
+#pragma mark - Status
+/**
+ *  Checks if device currently has keys saved to disk.
+ *
+ *  @return BOOL indicating whether or not there are saved keys.
+ */
+- (BOOL)deviceHasExistingKeys;
+
 @end

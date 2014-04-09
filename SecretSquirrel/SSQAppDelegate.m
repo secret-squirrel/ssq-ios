@@ -15,8 +15,11 @@
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [[SSQKeyManager sharedManager] deleteSavedPublicKey];
-    [[SSQKeyManager sharedManager] deleteSavedPrivateKey];
+    if([[SSQKeyManager sharedManager] deviceHasExistingKeys]) {
+        NSLog(@"EXISTING KEYS!");
+    } else {
+        NSLog(@"NO EXISTING KEYS!");
+    }
     
     return YES;
 }
