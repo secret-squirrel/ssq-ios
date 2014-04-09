@@ -133,6 +133,16 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     return [self saveKeyDataToDisk:privateKeyData withFileName:SSQPrivateKeyFileName];
 }
 
+- (NSData *)savedPublicKey
+{
+    return [self retreiveStoredKeyWithFileName:SSQPublicKeyFileName];
+}
+
+- (NSData *)savedPrivateKey
+{
+    return [self retreiveStoredKeyWithFileName:SSQPrivateKeyFileName];
+}
+
 #pragma mark - Keys Internal
 - (NSData *)tagForPublicKey
 {
@@ -197,6 +207,20 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
         return NO;
     } else {
         return YES;
+    }
+}
+
+- (NSData *)retreiveStoredKeyWithFileName:(NSString *)filename
+{
+    NSError *error;
+    
+    NSData *keyData = [NSData dataWithContentsOfFile:[NSString stringWithFormat:@"%@/%@", [self keyStoragePath], filename] options:0 error:&error];
+    
+    if(!error) {
+        return keyData;
+    } else {
+        NSLog(@"ERROR: Failed to retreive key data from disk. %@", [error localizedDescription]);
+        return nil;
     }
 }
 

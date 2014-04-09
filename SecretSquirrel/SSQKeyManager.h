@@ -67,4 +67,18 @@ static NSString *const SSQErrorDomain = @"com.twg.secretsquirrel.error";
  */
 - (BOOL)savePrivateKeyDataToDisk:(NSData *)privateKeyData;
 
+/**
+ *  Retreive public key saved to disk.
+ *
+ *  @return NSData representation of key. Nil if not found.
+ */
+- (NSData *)savedPublicKey;
+
+/**
+ *  Retreive private key saved to disk.
+ *
+ *  @return NSData representation of key. Nil if not found.
+ */
+- (NSData *)savedPrivateKey;
+
 @end
