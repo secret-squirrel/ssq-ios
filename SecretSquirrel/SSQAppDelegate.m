@@ -15,12 +15,6 @@
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if([[SSQKeyManager sharedManager] deviceHasExistingKeys]) {
-        NSLog(@"EXISTING KEYS!");
-    } else {
-        NSLog(@"NO EXISTING KEYS!");
-    }
-    
     return YES;
 }
 
