@@ -143,6 +143,16 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     return [self retreiveStoredKeyWithFileName:SSQPrivateKeyFileName];
 }
 
+- (BOOL)deleteSavedPublicKey
+{
+    return [self deleteKeyDataWithFileName:SSQPublicKeyFileName];
+}
+
+- (BOOL)deleteSavedPrivateKey
+{
+    return [self deleteKeyDataWithFileName:SSQPrivateKeyFileName];
+}
+
 #pragma mark - Keys Internal
 - (NSData *)tagForPublicKey
 {
@@ -221,6 +231,21 @@ static NSString *const SSQPrivateKeyFileName = @"SSQPrivateKey.ssqkey";
     } else {
         NSLog(@"ERROR: Failed to retreive key data from disk. %@", [error localizedDescription]);
         return nil;
+    }
+}
+
+- (BOOL)deleteKeyDataWithFileName:(NSString *)filename
+{
+    NSError *error;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    
+    [fileManager removeItemAtPath:[NSString stringWithFormat:@"%@/%@", [self keyStoragePath], filename] error:&error];
+    
+    if(error) {
+        NSLog(@"ERROR: Failed to delete key data from disk. %@", [error localizedDescription]);
+        return NO;
+    } else {
+        return YES;
     }
 }
 

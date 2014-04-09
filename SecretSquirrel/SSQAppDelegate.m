@@ -15,6 +15,9 @@
 #pragma mark - App Cycle
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[SSQKeyManager sharedManager] deleteSavedPublicKey];
+    [[SSQKeyManager sharedManager] deleteSavedPrivateKey];
+    
     return YES;
 }
 
