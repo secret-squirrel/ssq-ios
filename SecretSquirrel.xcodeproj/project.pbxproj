@@ -11,6 +11,7 @@
 		17ADEE4D18F1064200C75198 /* SSQKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */; };
 		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
 		17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeyManager.m */; };
+		17B4F9CA18F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4F9C918F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m */; };
 		17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
 		17B7E94618E9EBEF0029F75E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */; };
 		17B7E94818E9EBEF0029F75E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94718E9EBEF0029F75E /* UIKit.framework */; };
@@ -46,6 +47,8 @@
 		17AE61FF18EA688E00D041BD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		17AE620318EA68C100D041BD /* SSQKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeyManager.h; sourceTree = "<group>"; };
 		17AE620418EA68C100D041BD /* SSQKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManager.m; sourceTree = "<group>"; };
+		17B4F9C818F5B94800F1A094 /* NJOPasswordStrengthEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJOPasswordStrengthEvaluator.h; sourceTree = "<group>"; };
+		17B4F9C918F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJOPasswordStrengthEvaluator.m; sourceTree = "<group>"; };
 		17B7E94018E9EBEF0029F75E /* SecretSquirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretSquirrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		17B7E94318E9EBEF0029F75E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,6 +118,23 @@
 			name = "Key Manager";
 			sourceTree = "<group>";
 		};
+		17B4F9C618F5B92C00F1A094 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				17B4F9C718F5B93200F1A094 /* Navajo */,
+			);
+			name = Vendor;
+			sourceTree = "<group>";
+		};
+		17B4F9C718F5B93200F1A094 /* Navajo */ = {
+			isa = PBXGroup;
+			children = (
+				17B4F9C818F5B94800F1A094 /* NJOPasswordStrengthEvaluator.h */,
+				17B4F9C918F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m */,
+			);
+			name = Navajo;
+			sourceTree = "<group>";
+		};
 		17B7E93718E9EBEF0029F75E = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +144,7 @@
 				17B7E96218E9EBEF0029F75E /* SecretSquirrelTests */,
 				17B7E94218E9EBEF0029F75E /* Frameworks */,
 				17B7E94118E9EBEF0029F75E /* Products */,
+				17B4F9C618F5B92C00F1A094 /* Vendor */,
 				5E52C736DC5442A8B564E25E /* Pods-SecretSquirrelTests.xcconfig */,
 				500E2609A8C94749AC470642 /* Pods.xcconfig */,
 			);
@@ -370,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */,
+				17B4F9CA18F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m in Sources */,
 				17B7E95418E9EBEF0029F75E /* SSQAppDelegate.m in Sources */,
 				17B7E95018E9EBEF0029F75E /* main.m in Sources */,
 			);
