@@ -11,6 +11,8 @@
 		17ADEE4D18F1064200C75198 /* SSQKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */; };
 		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
 		17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AE620418EA68C100D041BD /* SSQKeyManager.m */; };
+		17AFACAF18F6BF64008E723A /* SSQLoginTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AFACAE18F6BF64008E723A /* SSQLoginTableViewController.m */; };
+		17AFACB518F6CA59008E723A /* SSQOnboardingPasswordTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17AFACB318F6C3C1008E723A /* SSQOnboardingPasswordTableViewController.m */; };
 		17B4F9CA18F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B4F9C918F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m */; };
 		17B7E94418E9EBEF0029F75E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94318E9EBEF0029F75E /* Foundation.framework */; };
 		17B7E94618E9EBEF0029F75E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B7E94518E9EBEF0029F75E /* CoreGraphics.framework */; };
@@ -47,6 +49,10 @@
 		17AE61FF18EA688E00D041BD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		17AE620318EA68C100D041BD /* SSQKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQKeyManager.h; sourceTree = "<group>"; };
 		17AE620418EA68C100D041BD /* SSQKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManager.m; sourceTree = "<group>"; };
+		17AFACAD18F6BF64008E723A /* SSQLoginTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQLoginTableViewController.h; sourceTree = "<group>"; };
+		17AFACAE18F6BF64008E723A /* SSQLoginTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQLoginTableViewController.m; sourceTree = "<group>"; };
+		17AFACB218F6C3C1008E723A /* SSQOnboardingPasswordTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQOnboardingPasswordTableViewController.h; sourceTree = "<group>"; };
+		17AFACB318F6C3C1008E723A /* SSQOnboardingPasswordTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQOnboardingPasswordTableViewController.m; sourceTree = "<group>"; };
 		17B4F9C818F5B94800F1A094 /* NJOPasswordStrengthEvaluator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NJOPasswordStrengthEvaluator.h; sourceTree = "<group>"; };
 		17B4F9C918F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NJOPasswordStrengthEvaluator.m; sourceTree = "<group>"; };
 		17B7E94018E9EBEF0029F75E /* SecretSquirrel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SecretSquirrel.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +124,32 @@
 			name = "Key Manager";
 			sourceTree = "<group>";
 		};
+		17AFACAC18F6BF40008E723A /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				17AFACAD18F6BF64008E723A /* SSQLoginTableViewController.h */,
+				17AFACAE18F6BF64008E723A /* SSQLoginTableViewController.m */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		17AFACB018F6C3A1008E723A /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				17AFACB118F6C3AE008E723A /* Password */,
+			);
+			name = Onboarding;
+			sourceTree = "<group>";
+		};
+		17AFACB118F6C3AE008E723A /* Password */ = {
+			isa = PBXGroup;
+			children = (
+				17AFACB218F6C3C1008E723A /* SSQOnboardingPasswordTableViewController.h */,
+				17AFACB318F6C3C1008E723A /* SSQOnboardingPasswordTableViewController.m */,
+			);
+			name = Password;
+			sourceTree = "<group>";
+		};
 		17B4F9C618F5B92C00F1A094 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +209,8 @@
 			isa = PBXGroup;
 			children = (
 				17E8223D18E9ED7900320433 /* App */,
+				17AFACAC18F6BF40008E723A /* Login */,
+				17AFACB018F6C3A1008E723A /* Onboarding */,
 			);
 			path = SecretSquirrel;
 			sourceTree = "<group>";
@@ -392,8 +426,10 @@
 			files = (
 				17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */,
 				17B4F9CA18F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m in Sources */,
+				17AFACAF18F6BF64008E723A /* SSQLoginTableViewController.m in Sources */,
 				17B7E95418E9EBEF0029F75E /* SSQAppDelegate.m in Sources */,
 				17B7E95018E9EBEF0029F75E /* main.m in Sources */,
+				17AFACB518F6CA59008E723A /* SSQOnboardingPasswordTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

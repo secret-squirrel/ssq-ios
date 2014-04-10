@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller - Secret Squirrel-->
+        <!--Login Table View Controller - Secret Squirrel-->
         <scene sceneID="bT2-Qg-ldi">
             <objects>
-                <tableViewController id="7jg-ci-v8c" sceneMemberID="viewController">
+                <tableViewController id="7jg-ci-v8c" customClass="SSQLoginTableViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="BWH-Vr-FhN">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,10 +41,135 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Secret Squirrel" id="kqL-5S-bP9"/>
+                    <connections>
+                        <segue destination="LHw-E1-cp7" kind="modal" identifier="SSQUserOnboarding" id="fUL-3S-9lf"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKU-Dz-zWU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="805" y="25"/>
+            <point key="canvasLocation" x="750" y="25"/>
+        </scene>
+        <!--Onboarding Password Table View Controller - Step 1-->
+        <scene sceneID="EEu-oA-K74">
+            <objects>
+                <tableViewController id="AJa-Nz-af9" customClass="SSQOnboardingPasswordTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jQe-ZQ-4NC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="zzd-XU-9II">
+                            <rect key="frame" x="0.0" y="64" width="320" height="122"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="WHJ-72-FTE">
+                                    <rect key="frame" x="20" y="20" width="280" height="82"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">First, we need to create a strong password. This password will be used to encrypt the public &amp; private keys we'll generate in the next step.</string>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progressViewStyle="bar" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="axE-mr-n1e">
+                                    <rect key="frame" x="0.0" y="120" width="320" height="3"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                </progressView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="axE-mr-n1e" secondAttribute="trailing" id="PCF-ET-yCA"/>
+                                <constraint firstAttribute="bottom" secondItem="axE-mr-n1e" secondAttribute="bottom" id="h1r-i1-COl"/>
+                                <constraint firstItem="axE-mr-n1e" firstAttribute="leading" secondItem="zzd-XU-9II" secondAttribute="leading" id="jAk-Ph-Exx"/>
+                            </constraints>
+                        </view>
+                        <sections>
+                            <tableViewSection id="eSY-lL-CVm">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="9rg-vp-MaQ">
+                                        <rect key="frame" x="0.0" y="186" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9rg-vp-MaQ" id="Plf-Va-oxC">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YDV-Ym-GlY">
+                                                    <rect key="frame" x="20" y="0.0" width="280" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                    <connections>
+                                                        <action selector="passwordTextFieldDidChange:" destination="AJa-Nz-af9" eventType="editingChanged" id="vVX-fD-XAg"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="AJa-Nz-af9" id="Poe-Dx-bWe"/>
+                            <outlet property="delegate" destination="AJa-Nz-af9" id="Uqh-CA-zQh"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Step 1" id="BEI-nv-01c"/>
+                    <connections>
+                        <outlet property="passwordStrengthMeter" destination="axE-mr-n1e" id="eKf-MO-jUi"/>
+                        <outlet property="passwordTextField" destination="YDV-Ym-GlY" id="VTM-RG-Tr5"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jrl-Rd-2OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2196" y="712"/>
+        </scene>
+        <!--View Controller - Setup-->
+        <scene sceneID="eHM-FP-6Mh">
+            <objects>
+                <viewController id="W86-au-zFX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="XcB-A3-dHd"/>
+                        <viewControllerLayoutGuide type="bottom" id="xWQ-K0-ylA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lYq-Wk-CwC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ZEC-9c-aKG">
+                                <rect key="frame" x="20" y="216" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Over the next few steps, we're going to help you get set up to start using Secret Squirrel." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="eAo-eR-tq1">
+                                <rect key="frame" x="20" y="253" width="280" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eAo-eR-tq1" firstAttribute="leading" secondItem="lYq-Wk-CwC" secondAttribute="leading" constant="20" id="30V-PN-tMW"/>
+                            <constraint firstItem="eAo-eR-tq1" firstAttribute="top" secondItem="ZEC-9c-aKG" secondAttribute="bottom" constant="8" id="QKJ-7y-rDP"/>
+                            <constraint firstAttribute="centerY" secondItem="eAo-eR-tq1" secondAttribute="centerY" constant="0.5" id="Ska-SG-CMd"/>
+                            <constraint firstItem="eAo-eR-tq1" firstAttribute="top" secondItem="ZEC-9c-aKG" secondAttribute="bottom" constant="8" id="nz2-WM-7mR"/>
+                            <constraint firstAttribute="trailing" secondItem="ZEC-9c-aKG" secondAttribute="trailing" constant="20" id="pxd-1D-fMF"/>
+                            <constraint firstItem="ZEC-9c-aKG" firstAttribute="leading" secondItem="lYq-Wk-CwC" secondAttribute="leading" constant="20" id="rph-Mh-Mtt"/>
+                            <constraint firstAttribute="trailing" secondItem="eAo-eR-tq1" secondAttribute="trailing" constant="20" id="vFf-si-y6n"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Setup" id="KIy-MY-oEw">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="G0f-ru-V4u">
+                            <connections>
+                                <segue destination="AJa-Nz-af9" kind="push" id="YDb-pF-2T2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LhI-4R-Ga5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1750" y="712"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Hmt-KI-6rW">
@@ -63,6 +188,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LKr-Qv-NMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="279" y="25"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sLp-sS-U3d">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LHw-E1-cp7" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Hqg-nA-ztX">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="W86-au-zFX" kind="relationship" relationship="rootViewController" id="sLo-0G-HVp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1B4-1P-Xki" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1290" y="712"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
