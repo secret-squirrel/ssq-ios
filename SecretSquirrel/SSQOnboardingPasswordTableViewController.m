@@ -25,7 +25,13 @@
 {
     [super viewDidLoad];
     
-    self.passwordValidator = [NJOPasswordValidator validatorWithRules:@[[NJOLengthRule ruleWithRange:NSMakeRange(8, 64)], [NJORequiredCharacterRule lowercaseCharacterRequiredRule], [NJORequiredCharacterRule uppercaseCharacterRequiredRule], [NJORequiredCharacterRule symbolCharacterRequiredRule]]];
+    self.passwordValidator =
+        [NJOPasswordValidator validatorWithRules:@[
+                                                   [NJOLengthRule ruleWithRange:NSMakeRange(8, 64)],
+                                                   [NJORequiredCharacterRule lowercaseCharacterRequiredRule],
+                                                   [NJORequiredCharacterRule uppercaseCharacterRequiredRule],
+                                                   [NJORequiredCharacterRule symbolCharacterRequiredRule]
+                                                   ]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -51,26 +57,35 @@
     } else {
         NJOPasswordStrength strength = [NJOPasswordStrengthEvaluator strengthOfPassword:password];
         switch (strength) {
-            case NJOVeryWeakPasswordStrength:
+            case NJOVeryWeakPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.05f;
                 self.passwordStrengthMeter.tintColor = [UIColor redColor];
                 break;
-            case NJOWeakPasswordStrength:
+            }
+                
+            case NJOWeakPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.25f;
                 self.passwordStrengthMeter.tintColor = [UIColor orangeColor];
                 break;
-            case NJOReasonablePasswordStrength:
+            }
+                
+            case NJOReasonablePasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.5f;
                 self.passwordStrengthMeter.tintColor = [UIColor yellowColor];
                 break;
-            case NJOStrongPasswordStrength:
+            }
+                
+            case NJOStrongPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.75f;
                 self.passwordStrengthMeter.tintColor = [UIColor greenColor];
                 break;
-            case NJOVeryStrongPasswordStrength:
+            }
+                
+            case NJOVeryStrongPasswordStrength: {
                 self.passwordStrengthMeter.progress = 1.0f;
                 self.passwordStrengthMeter.tintColor = [UIColor cyanColor];
                 break;
+            }
         }
     }
 }
