@@ -111,8 +111,11 @@
                             <outlet property="delegate" destination="AJa-Nz-af9" id="Uqh-CA-zQh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Step 1" id="BEI-nv-01c"/>
+                    <navigationItem key="navigationItem" title="Step 1" id="BEI-nv-01c">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="dKw-1f-s1x"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="dKw-1f-s1x" id="cqW-7f-X9G"/>
                         <outlet property="passwordStrengthMeter" destination="axE-mr-n1e" id="eKf-MO-jUi"/>
                         <outlet property="passwordTextField" destination="YDV-Ym-GlY" id="VTM-RG-Tr5"/>
                     </connections>

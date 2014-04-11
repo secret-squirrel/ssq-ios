@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIProgressView *passwordStrengthMeter;
 @property (readwrite, nonatomic, strong) NJOPasswordValidator *passwordValidator;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *nextButton;
 
 @end
 
@@ -60,30 +61,35 @@
             case NJOVeryWeakPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.05f;
                 self.passwordStrengthMeter.tintColor = [UIColor redColor];
+                self.nextButton.enabled = NO;
                 break;
             }
                 
             case NJOWeakPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.25f;
                 self.passwordStrengthMeter.tintColor = [UIColor orangeColor];
+                self.nextButton.enabled = NO;
                 break;
             }
                 
             case NJOReasonablePasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.5f;
                 self.passwordStrengthMeter.tintColor = [UIColor yellowColor];
+                self.nextButton.enabled = NO;
                 break;
             }
                 
             case NJOStrongPasswordStrength: {
                 self.passwordStrengthMeter.progress = 0.75f;
                 self.passwordStrengthMeter.tintColor = [UIColor greenColor];
+                self.nextButton.enabled = YES;
                 break;
             }
                 
             case NJOVeryStrongPasswordStrength: {
                 self.passwordStrengthMeter.progress = 1.0f;
                 self.passwordStrengthMeter.tintColor = [UIColor cyanColor];
+                self.nextButton.enabled = YES;
                 break;
             }
         }
