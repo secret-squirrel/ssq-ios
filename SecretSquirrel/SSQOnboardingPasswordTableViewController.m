@@ -9,6 +9,7 @@
 #import "SSQOnboardingPasswordTableViewController.h"
 
 #import "NJOPasswordStrengthEvaluator.h"
+#import "SSQOnboardingKeyGenerationViewController.h"
 
 @interface SSQOnboardingPasswordTableViewController ()
 
@@ -99,7 +100,10 @@
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    
+    if([segue.identifier isEqualToString:@"SSQKeyGeneration"]) {
+        SSQOnboardingKeyGenerationViewController *keyGenerationVC = segue.destinationViewController;
+        keyGenerationVC.userPassword = self.passwordTextField.text;
+    }
 }
 
 @end

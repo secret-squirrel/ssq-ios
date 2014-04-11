@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17A52ACF18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17A52ACE18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.m */; };
 		17ADEE4B18F1054F00C75198 /* SSQTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4A18F1054F00C75198 /* SSQTestHelper.m */; };
 		17ADEE4D18F1064200C75198 /* SSQKeyManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */; };
 		17AE620118EA689C00D041BD /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17AE61FF18EA688E00D041BD /* Security.framework */; };
@@ -43,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17A52ACD18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQOnboardingKeyGenerationViewController.h; sourceTree = "<group>"; };
+		17A52ACE18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQOnboardingKeyGenerationViewController.m; sourceTree = "<group>"; };
 		17ADEE4918F1054F00C75198 /* SSQTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SSQTestHelper.h; sourceTree = "<group>"; };
 		17ADEE4A18F1054F00C75198 /* SSQTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQTestHelper.m; sourceTree = "<group>"; };
 		17ADEE4C18F1064200C75198 /* SSQKeyManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SSQKeyManagerTests.m; sourceTree = "<group>"; };
@@ -106,6 +109,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17A52ACC18F8263E00CE1C90 /* Key Generation */ = {
+			isa = PBXGroup;
+			children = (
+				17A52ACD18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.h */,
+				17A52ACE18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.m */,
+			);
+			name = "Key Generation";
+			sourceTree = "<group>";
+		};
 		17ADEE4818F1051400C75198 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -137,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				17AFACB118F6C3AE008E723A /* Password */,
+				17A52ACC18F8263E00CE1C90 /* Key Generation */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -427,6 +440,7 @@
 				17AE620518EA68C100D041BD /* SSQKeyManager.m in Sources */,
 				17B4F9CA18F5B94800F1A094 /* NJOPasswordStrengthEvaluator.m in Sources */,
 				17AFACAF18F6BF64008E723A /* SSQLoginTableViewController.m in Sources */,
+				17A52ACF18F8265900CE1C90 /* SSQOnboardingKeyGenerationViewController.m in Sources */,
 				17B7E95418E9EBEF0029F75E /* SSQAppDelegate.m in Sources */,
 				17B7E95018E9EBEF0029F75E /* main.m in Sources */,
 				17AFACB518F6CA59008E723A /* SSQOnboardingPasswordTableViewController.m in Sources */,

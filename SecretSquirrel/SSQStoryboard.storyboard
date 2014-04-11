@@ -114,7 +114,7 @@
                     <navigationItem key="navigationItem" title="Step 1" id="BEI-nv-01c">
                         <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="dKw-1f-s1x">
                             <connections>
-                                <segue destination="y4u-BQ-DpB" kind="push" id="VNw-6l-FlX"/>
+                                <segue destination="y4u-BQ-DpB" kind="push" identifier="SSQKeyGeneration" id="VNw-6l-FlX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="2196" y="712"/>
         </scene>
-        <!--View Controller - Step 2-->
+        <!--Onboarding Key Generation View Controller - Step 2-->
         <scene sceneID="9iB-Ma-Gb1">
             <objects>
-                <viewController id="y4u-BQ-DpB" sceneMemberID="viewController">
+                <viewController id="y4u-BQ-DpB" customClass="SSQOnboardingKeyGenerationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hGr-Ox-oX6"/>
                         <viewControllerLayoutGuide type="bottom" id="Pau-El-s1V"/>
@@ -175,7 +175,15 @@
                             <constraint firstItem="5ch-e2-UGi" firstAttribute="top" secondItem="6bt-PN-ae5" secondAttribute="bottom" constant="8" id="kRB-zp-d3w"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Step 2" id="msQ-Sg-Kkd"/>
+                    <navigationItem key="navigationItem" title="Step 2" id="msQ-Sg-Kkd">
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="uH2-Qh-klh"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="detailLabel" destination="5ch-e2-UGi" id="czG-6x-ceo"/>
+                        <outlet property="headerLabel" destination="6bt-PN-ae5" id="cqQ-Ys-Gce"/>
+                        <outlet property="nextButton" destination="uH2-Qh-klh" id="yZO-f2-CRD"/>
+                        <outlet property="spinner" destination="940-GW-ovl" id="FVA-zf-Gnu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ujP-oK-1gv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
