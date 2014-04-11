@@ -176,7 +176,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Step 2" id="msQ-Sg-Kkd">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="uH2-Qh-klh"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="uH2-Qh-klh">
+                            <connections>
+                                <action selector="done:" destination="y4u-BQ-DpB" id="iyi-Lu-YxE"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailLabel" destination="5ch-e2-UGi" id="czG-6x-ceo"/>
