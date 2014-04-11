@@ -112,7 +112,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Step 1" id="BEI-nv-01c">
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="dKw-1f-s1x"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Next" id="dKw-1f-s1x">
+                            <connections>
+                                <segue destination="y4u-BQ-DpB" kind="push" id="VNw-6l-FlX"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="dKw-1f-s1x" id="cqW-7f-X9G"/>
@@ -123,6 +127,59 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jrl-Rd-2OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2196" y="712"/>
+        </scene>
+        <!--View Controller - Step 2-->
+        <scene sceneID="9iB-Ma-Gb1">
+            <objects>
+                <viewController id="y4u-BQ-DpB" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hGr-Ox-oX6"/>
+                        <viewControllerLayoutGuide type="bottom" id="Pau-El-s1V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HhC-OY-mKy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Generating Keys" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="6bt-PN-ae5">
+                                <rect key="frame" x="20" y="206" width="280" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We're creating a public key &amp; private key for you, encrypting them using your password, and saving them to disk." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="5ch-e2-UGi">
+                                <rect key="frame" x="20" y="243" width="280" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="940-GW-ovl">
+                                <rect key="frame" x="142" y="333" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="940-GW-ovl" firstAttribute="leading" secondItem="HhC-OY-mKy" secondAttribute="leading" constant="142" id="0ea-Te-Hda"/>
+                            <constraint firstAttribute="trailing" secondItem="6bt-PN-ae5" secondAttribute="trailing" constant="20" id="7vq-eN-fuI"/>
+                            <constraint firstAttribute="centerY" secondItem="5ch-e2-UGi" secondAttribute="centerY" constant="0.5" id="Fxp-bd-efg"/>
+                            <constraint firstItem="5ch-e2-UGi" firstAttribute="top" secondItem="6bt-PN-ae5" secondAttribute="bottom" constant="8" id="VGh-3q-CDK"/>
+                            <constraint firstAttribute="trailing" secondItem="940-GW-ovl" secondAttribute="trailing" constant="141" id="Yah-yN-edE"/>
+                            <constraint firstItem="6bt-PN-ae5" firstAttribute="leading" secondItem="HhC-OY-mKy" secondAttribute="leading" constant="20" id="axr-GG-vf8"/>
+                            <constraint firstAttribute="trailing" secondItem="5ch-e2-UGi" secondAttribute="trailing" constant="20" id="d7T-rm-q3r"/>
+                            <constraint firstAttribute="centerX" secondItem="5ch-e2-UGi" secondAttribute="centerX" id="hvd-8T-GhZ"/>
+                            <constraint firstItem="940-GW-ovl" firstAttribute="top" secondItem="5ch-e2-UGi" secondAttribute="bottom" constant="8" id="ig7-cC-dYQ"/>
+                            <constraint firstItem="5ch-e2-UGi" firstAttribute="leading" secondItem="HhC-OY-mKy" secondAttribute="leading" constant="20" id="jmc-Mv-6dv"/>
+                            <constraint firstItem="5ch-e2-UGi" firstAttribute="top" secondItem="6bt-PN-ae5" secondAttribute="bottom" constant="8" id="kRB-zp-d3w"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Step 2" id="msQ-Sg-Kkd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ujP-oK-1gv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2640" y="712"/>
         </scene>
         <!--View Controller - Setup-->
         <scene sceneID="eHM-FP-6Mh">
